@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101512"><title>URL-SAFE — Security workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="#" aria-label="URL-SAFE home"><span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 6v5.7c0 4.3-2.8 7.8-8 9.3-5.2-1.5-8-5-8-9.3V6l8-3Z"/><path d="m8.6 12 2.2 2.2 4.8-4.8"/></svg></span><span>url-safe<span class="brand-period">.</span></span></a>
+    <div class="workspace-label">WORKSPACE</div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-item active" data-page="overview"><span class="nav-icon">◫</span>Overview</button>
+      <button class="nav-item" data-page="scanner"><span class="nav-icon">⌕</span>New scan</button>
+      <button class="nav-item" data-page="history"><span class="nav-icon">◷</span>Scan history</button>
+      <button class="nav-item" data-page="lab"><span class="nav-icon">⌁</span>Threat lab<span class="nav-tag">LEARN</span></button>
+    </nav>
+    <div class="side-bottom">
+      <div class="privacy-card"><span class="privacy-icon">◉</span><div><strong>Private by design</strong><p>Scans stay on this device.</p></div><span class="online-dot"></span></div>
+      <div class="side-version">URL-SAFE <span>LOCAL EDITION</span></div>
+    </div>
+  </aside>
+  <main class="main-area">
+    <header class="topbar"><div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="crumb">Overview</strong></div><div class="top-right"><span class="local-status"><i></i> Local analysis</span><button class="icon-button" title="About URL-SAFE" id="aboutBtn">i</button><div class="avatar">U</div></div></header>
+    <section class="page active" id="overviewPage">
+      <div class="welcome-row"><div><div class="eyebrow"><span class="pulse"></span>PERSONAL SECURITY WORKSPACE</div><h1>Good security starts<br>with a second look<span class="accent-dot">.</span></h1><p class="lede">Check a link, message, password or filename before you trust it.</p></div><button class="button primary" data-go="scanner"><span>＋</span> Start a scan</button></div>
+      <div class="metrics-grid">
+        <article class="metric-card"><div class="metric-top"><span>SCANS THIS SESSION</span><span class="metric-icon">⌕</span></div><div class="metric-number" id="statCount">0</div><div class="metric-foot">Local checks completed</div><div class="metric-rule"></div></article>
+        <article class="metric-card"><div class="metric-top"><span>NEEDS A CLOSER LOOK</span><span class="metric-icon amber">◷</span></div><div class="metric-number" id="statFlagged">0</div><div class="metric-foot">Medium risk or above</div><div class="metric-rule amber-rule"></div></article>
+        <article class="metric-card"><div class="metric-top"><span>SCAN TYPES</span><span class="metric-icon">⟡</span></div><div class="metric-number">04</div><div class="metric-foot">Links, files, text, passwords</div><div class="metric-rule"></div></article>
+      </div>
+      <div class="content-grid">
+        <section class="panel quick-panel"><div class="panel-heading"><div><div class="section-kicker">GET STARTED</div><h2>What would you like to check?</h2></div><span class="panel-count">4 SCANNERS</span></div>
+          <div class="scanner-grid">
+            <button class="scanner-card" data-scan="url"><span class="scanner-icon link-icon">↗</span><span class="scanner-copy"><strong>Suspicious link</strong><small>Inspect URL warning signs</small></span><span class="card-arrow">↗</span></button>
+            <button class="scanner-card" data-scan="file"><span class="scanner-icon file-icon">▤</span><span class="scanner-copy"><strong>File name</strong><small>Check type and extension</small></span><span class="card-arrow">↗</span></button>
+            <button class="scanner-card" data-scan="text"><span class="scanner-icon text-icon">≋</span><span class="scanner-copy"><strong>Message or text</strong><small>Spot common scam language</small></span><span class="card-arrow">↗</span></button>
+            <button class="scanner-card" data-scan="password"><span class="scanner-icon pass-icon">⌑</span><span class="scanner-copy"><strong>Password strength</strong><small>Check a sample privately</small></span><span class="card-arrow">↗</span></button>
+          </div>
+        </section>
+        <section class="panel history-panel"><div class="panel-heading"><div><div class="section-kicker">RECENT ACTIVITY</div><h2>Recent scans</h2></div><button class="text-button" data-go="history">View all <span>→</span></button></div><div id="recentList" class="recent-list"><div class="empty-state"><span class="empty-mark">◷</span><strong>No scans yet</strong><small>Your saved URL and file checks will show up here.</small></div></div></section>
+      </div>
+      <div class="disclaimer"><span>ⓘ</span><p><strong>A helpful signal, not a guarantee.</strong> URL-SAFE uses local rules and does not visit links, inspect file contents, or check online reputation.</p><button id="learnMore">How it works <span>→</span></button></div>
+    </section>
+    <section class="page" id="scannerPage">
+      <div class="page-heading"><div class="eyebrow">LOCAL ANALYSIS</div><h1>Run a scan<span class="accent-dot">.</span></h1><p class="lede">Choose a scanner and review the signals before you decide what to do.</p></div>
+      <div class="scan-layout"><section class="panel scan-form-panel"><div class="section-kicker">SCAN INPUT</div><div class="type-tabs" role="tablist"><button class="type-tab selected" data-type="url">↗ <span>Link</span></button><button class="type-tab" data-type="file">▤ <span>File name</span></button><button class="type-tab" data-type="text">≋ <span>Message</span></button><button class="type-tab" data-type="password">⌑ <span>Password</span></button></div>
+        <form id="scanForm"><label id="inputLabel" for="scanInput">Paste a URL</label><div class="input-wrap"><textarea id="scanInput" rows="3" placeholder="https://example.com/verify-account" required></textarea><button class="paste-hint" type="button" id="clearInput">Clear</button></div><div class="field-help" id="fieldHelp">We inspect the address text only. The website is never opened.</div><div class="form-actions"><span class="privacy-note"><span>◉</span> Processed on this device</span><button class="button primary" type="submit" id="scanButton">Analyze <span>→</span></button></div></form>
+        <div class="scan-error" id="scanError" hidden></div>
+      </section><aside class="panel guidance-panel"><span class="guidance-symbol">✳</span><div class="section-kicker">BEFORE YOU SCAN</div><h3>Keep sensitive details private.</h3><p>Use a sample password. Passwords and message text are checked in memory and never added to history.</p><div class="guidance-divider"></div><div class="guidance-point"><span>01</span><p>We don't upload your input.</p></div><div class="guidance-point"><span>02</span><p>Results are based on simple local rules.</p></div></aside></div>
+      <section class="panel result-panel" id="resultPanel" hidden><div class="result-header"><div><div class="section-kicker">SCAN REPORT</div><h2 id="resultTitle">Analysis complete</h2></div><div id="resultBadge" class="risk-badge">LOW RISK</div></div><div class="result-score-row"><div class="score-ring" id="scoreRing"><div><strong id="scoreValue">0</strong><small>RISK SCORE</small></div></div><div class="result-summary"><div class="section-kicker">RECOMMENDED NEXT STEP</div><p id="recommendation"></p><small id="targetLabel"></small></div></div><div class="findings-head"><h3>Signals found</h3><span id="findingCount"></span></div><div id="findingsList" class="findings-list"></div><div id="reportNotes" class="report-notes"></div><div class="result-actions"><button class="button secondary" id="downloadReport">↓ Download report</button><button class="button ghost" id="newScan">New scan <span>→</span></button></div></section>
+    </section>
+    <section class="page" id="historyPage"><div class="page-heading history-title-row"><div><div class="eyebrow">YOUR LOCAL RECORD</div><h1>Scan history<span class="accent-dot">.</span></h1><p class="lede">Saved URL and filename scans from this device.</p></div><button class="button secondary" data-go="scanner">＋ New scan</button></div><section class="panel table-panel"><div class="table-head"><div><div class="section-kicker">RECENT ACTIVITY</div><h2>All saved scans</h2></div><span class="panel-count" id="historyCount">0 RECORDS</span></div><div class="table-scroll"><table><thead><tr><th>SCAN</th><th>TARGET</th><th>RISK</th><th>DATE</th><th></th></tr></thead><tbody id="historyRows"></tbody></table><div class="empty-state" id="historyEmpty"><span class="empty-mark">◷</span><strong>Nothing here yet</strong><small>URL and filename scans are saved locally for reference.</small></div></div></section></section>
+    <section class="page" id="labPage"><div class="page-heading"><div class="eyebrow">INTERACTIVE LEARNING</div><h1>Threat lab<span class="accent-dot">.</span></h1><p class="lede">Practice spotting the clues attackers use. All scenarios are simulated and safe.</p></div><div class="lab-grid"><section class="panel scenario-panel"><div class="scenario-top"><div class="section-kicker">SCENARIO <span id="scenarioIndex">01 / 03</span></div><span class="sim-badge"><i></i> SIMULATION</span></div><div class="scenario-progress"><span id="scenarioProgress"></span></div><div class="scenario-icon" id="scenarioIcon">✉</div><div class="scenario-category" id="scenarioCategory">PHISHING MESSAGE</div><h2 id="scenarioTitle"></h2><div class="mock-message" id="scenarioContent"></div><p class="scenario-prompt">What would you do next?</p><div class="scenario-options" id="scenarioOptions"></div><div class="scenario-feedback" id="scenarioFeedback" hidden></div><button class="button primary next-scenario" id="nextScenario" hidden>Next scenario <span>→</span></button></section><aside class="panel lab-aside"><div class="section-kicker">LEARNING NOTES</div><h3>Look for the pattern, not just the polish.</h3><p>Scam attempts can look convincing. Focus on the request, the destination, and whether you can verify the sender independently.</p><div class="lab-tip"><span>⌁</span><p>When in doubt, open the official app or type the known website address yourself.</p></div><div class="scenario-progress-copy"><strong id="labScore">0 / 3</strong><small>scenarios completed</small></div></aside></div></section>
+    <footer class="footer"><span>URL-SAFE <span class="footer-dot">●</span> LOCAL SECURITY LEARNING LAB</span><span>Made for a more thoughtful click.</span></footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<div class="modal-backdrop" id="modal" hidden><div class="modal"><button class="modal-close" id="closeModal">×</button><div class="section-kicker">ABOUT THIS PROJECT</div><h2>Security, made a little easier to understand.</h2><p>URL-SAFE is a local-first learning project. It checks four kinds of input against a small set of transparent warning patterns, then explains what those patterns could mean.</p><div class="modal-rule"></div><p class="modal-small">The score is a teaching aid, not a verdict. A low score doesn't prove something is safe, and a warning doesn't prove it is malicious. Never paste a real password into a tool you don't trust.</p><button class="button primary" id="modalDone">Got it</button></div></div>
+<script src="app.js"></script>
+</body></html>

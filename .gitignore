@@ -1,0 +1,7 @@
+URL-SAFE.zip
+*.zip
+url_safe.db
+*.db
+.venv/
+__pycache__/
+*.py[cod]
